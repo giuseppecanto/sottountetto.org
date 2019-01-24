@@ -1,0 +1,5 @@
+div.customWindow div.controls {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}

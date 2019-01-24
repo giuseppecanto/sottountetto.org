@@ -1,0 +1,45 @@
+<navigation></navigation>
+    <section id="main">
+        <div class="breadcrumb-wrapper">
+            <div class="pattern-overlay">
+                <section id="page-tree">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5">
+                                <h1>Accedi</h1>
+                            </div>
+                            <div class="col-md-7 col-sm-7">
+                                <ol class="breadcrumb pull-right hidden-xs">
+                                    <li><a href="/home"><i class="ion-home"></i> Home</a></li>
+                                    
+                                    <li class="active"><a>Accedi</a></li>
+                                </ol>
+                            </div>
+                        </div><!--row-->
+                    </div><!--container-->
+                </section><!--page-tree-->
+            </div>
+        </div>
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                <div class="col-md-6 col-sm-12"><br>
+                    <form ng-submit="vm.onSubmit()">
+                        <div class="form-group">
+                        <label for="email">Indirizzo email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Inserisci la email con la quale ti sei registrato" ng-model="vm.credentials.email">
+                        </div>
+                        <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Inserisci la password" ng-model="vm.credentials.password">
+                        </div>
+                        <button type="submit" class="btn btn-default">Accedi</button>
+                        <br>
+                        <br>
+                        <div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

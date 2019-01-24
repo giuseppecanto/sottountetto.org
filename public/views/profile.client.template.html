@@ -1,0 +1,76 @@
+    <navigation></navigation>
+        <!-- Main Section -->
+            <section id="main">
+                <div class="breadcrumb-wrapper">
+                    <div class="pattern-overlay">
+                        <section id="page-tree">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-5 col-sm-5">
+                                        <h1>Registrati</h1>
+                                    </div>
+                                    <div class="col-md-7 col-sm-7">
+                                        <ol class="breadcrumb pull-right hidden-xs">
+                                            <li><a href="/home"><i class="ion-home"></i> Home</a></li>
+                                            
+                                            <li class="active"><a>Registrati</a></li>
+                                        </ol>
+                                    </div>
+                                </div><!--row-->
+                            </div><!--container-->
+                        </section><!--page-tree-->
+                    </div>
+                </div>
+               <section id="single-person" class="padding-60">
+            <div class="container">
+                <div class="row">    
+                    <div class="col-md-6 col-xs-12">
+                        <h3>{{vm.data.user.firstname}}</h3>
+                        <!--collapse-->
+                        <div class="panel-group" id="accordion">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                            {{vm.data.user.home.purpose == "proposte" ? "Offre" : vm.data.user.home.purpose == 'richieste' ? "Richiede" : "Nessuna proposta/richiesta" }}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        {{vm.data.user.firstname}} {{
+                                        vm.data.user.home.purpose == "proposte" ?
+                                        "offre "  + vm.data.user.home.numBed + " posto/i letto all'indrizzo: " + vm.data.user.home.address :
+                                            vm.data.user.home.purpose == 'richieste' ? "richiede " + vm.data.user.home.numBed + " posto/i letto all'indrizzo: " + vm.data.user.home.address :
+                                            "non ha ancora proposto/richiesto niente."
+                                        }}
+                                          
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--collapse end-->
+                        <br>
+                        <br>
+                        <h3>Vuoi contattarlo?</h3>
+                        <form ng-submit="vm.onSubmit()">
+                        <div class="form-group">
+                                <label for="messaggio">Messaggio</label>
+                                <textarea class="form-control" rows="5" id="messaggio" placeholder="" ng-model="vm.formData.message"></textarea>
+                        </div>
+                        <label>Come funziona:</label>
+                        <p>Nel messaggio includi un tuo contatto per poter esser ricontattato: email o telefono.</p>
+                        <br>
+                        <button type="submit" class="btn btn-default pull-right">Invia</button>
+                        <br>
+                        <br>
+                        <div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+                        <div class="success alert-success alert" ng-show="vm.formSuccess">{{ vm.formSuccess }}</div>
+                        </form>
+                          
+                    </div>
+                </div>
+               
+
+            </section>
+          <!-- /Main Section -->

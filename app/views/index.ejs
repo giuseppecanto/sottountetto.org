@@ -1,0 +1,45 @@
+    <!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" ng-app="avvocatoDirettoApp">
+    <head>
+        <title><%= title %></title>
+        
+    </head>
+    <body >
+       <% if ( user ) { %>
+            <a href="/myProfile">Il mio Profilo</a>
+            <a href="/signout">Sign out</a>
+        <% } else { %>
+            <a href="/signup">Signup</a>
+            <a href="/signin">Signin</a>
+        <% } %>
+        <a href="/home">Home</a>
+        <a href="/search">Cerca</a>
+        <a href="#/comefunziona">Come funziona</a>
+        <a href="/attualita">Attualita'</a>
+        <a href="/partners">Partners</a>
+        <a href="/faq">FAQ</a>
+        <a href="/contacts">Contatti</a>
+
+        <section ng-view></section>
+
+        <script type="text/javascript">
+            window.user = <%- user || 'null' %>;
+        </script>
+
+        <!-- Getting the AngularJS library -->
+        <script type="text/javascript" src="/lib/angular/angular.js"></script>
+
+        <!-- Getting AngularJS dependencies -->
+        <script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+
+        <!-- Getting the AngularJS application -->
+        <script type="text/javascript" src="/application.js"></script>
+        
+        <script type="text/javascript" src="/attualita/attualita.client.module.js"></script>
+        <script type="text/javascript" src="/attualita/controllers/attualita.client.controller.js"></script>
+    
+        <script type="text/javascript" src="/users/users.client.module.js"></script>
+        <script type="text/javascript" src="/users/services/authentication.client.services.js"
+        
+    </body>
+</html>

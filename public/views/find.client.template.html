@@ -1,0 +1,77 @@
+<navigation></navigation>
+    <section id="main">
+        <div class="breadcrumb-wrapper">
+            <div class="pattern-overlay">
+                <section id="page-tree">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5">
+                                <h1>Cerca</h1>
+                            </div>
+                            <div class="col-md-7 col-sm-7">
+                                <ol class="breadcrumb pull-right hidden-xs">
+                                    <li><a href="/home"><i class="ion-home"></i> Home</a></li>
+                                    
+                                    <li class="active"><a>Cerca</a></li>
+                                </ol>
+                            </div>
+                        </div><!--row-->
+                    </div><!--container-->
+                </section><!--page-tree-->
+            </div>
+        </div><br>
+         <div class="content"">
+                    <div class="container">
+                        <div class="row">
+                           
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div>
+                                <ng-map
+                                    center="{{ vm.center || 'Roma, Italia' }}"
+                                    zoom="7"
+                                    pan-control="true"
+                                    map-type-control="true"
+                                    map-type-control-options="{style:'DROPDOWN_MENU'}"
+                                    zoom-control="true"
+                                    zoom-control-options="{style:'SMALL'}"
+                                    default-style="true">
+
+                                <marker ng-repeat="user in vm.data.users" id="{{user._id}}" position="{{user.home.address}}" on-click="vm.showDetail(user)" icon="http://maps.google.com/mapfiles/ms/icons/green-dot.png"></marker> 
+                                <marker ng-repeat="user2 in vm.data2.users2" id="{{user2._id}}" position="{{user2.home.address}}" on-click="vm.showDetail(user2)" icon="http://maps.google.com/mapfiles/ms/icons/red-dot.png"></marker>
+
+                                <info-window id="foo-iw">
+                                        <div class="customWindow" ng-non-bindable="">
+                                            {{vm.user.firstname}} {{vm.user.home.purpose == 'proposte' ? 'offre' : 'richiede'}} {{vm.user.home.numBed}} posto/i letto.
+                                            <br>
+                                            <div class="controls">
+                                                <button type="submit" ng-click="vm.getProfile(vm.user)">Contattalo</button>
+                                            </div>
+                                        </div>
+                                </info-window>
+
+                                </ng-map>
+                                </div>  
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="margin-top:30px; margin-bottom:30px;">
+                                <form ng-submit="vm.onSubmit()">
+                                <div class='form-group'>
+                                <label for="tipo">Fitra per tipologia</label>
+                                  <select class="form-control" style="color:grey" ng-model="vm.type">
+                                      <option style="color:lightgrey" value="" selected>Tipologia</option>
+                                      <option style="color:black">Proposte</option>
+                                      <option style="color:black">Richieste</option>
+                                  </select>
+                                </div>    
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-success" ng-click="vm.onSubmit()">APPLICA FILTRO</button>
+                                </div>
+                                </form>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Main Content -->
+    </section>
+  

@@ -1,0 +1,65 @@
+    <navigation></navigation>
+        <!-- Main Section -->
+            <section id="main">
+                <div class="breadcrumb-wrapper">
+                    <div class="pattern-overlay">
+                        <section id="page-tree">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-5 col-sm-5">
+                                        <h1>Registrati</h1>
+                                    </div>
+                                    <div class="col-md-7 col-sm-7">
+                                        <ol class="breadcrumb pull-right hidden-xs">
+                                            <li><a href="/home"><i class="ion-home"></i> Home</a></li>
+                                            
+                                            <li class="active"><a>Registrati</a></li>
+                                        </ol>
+                                    </div>
+                                </div><!--row-->
+                            </div><!--container-->
+                        </section><!--page-tree-->
+                    </div>
+                </div>
+                <!-- Main Content -->
+                <div class="content">
+                    <div class="container">
+                      <div class="row">
+                          <div class="col-md-6 col-sm-12"><br>
+                            <form ng-submit="vm.onSubmit()">                              
+                              <div class="form-group">
+                                <label for="firstname">Nome</label>
+                                <input type="text" class="form-control" id="firstname" placeholder="Inserisci il tuo nome" ng-model="vm.formData.firstname">
+                              </div>
+                              <div class="form-group">
+                                <label for="lastname">Cognome</label>
+                                <input type="text" class="form-control" id="lastname" placeholder="Inserisci il tuo cognome" ng-model="vm.formData.lastname">
+                              </div>
+                              <div class="form-group">
+                                <label for="email">Indirizzo email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Inserisci la tua email" ng-model="vm.formData.email">
+                              </div>
+                              <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Inventa una nuova password" ng-model="vm.formData.password">
+                              </div>
+                              <div class="form-group">
+                                <label for="password">Ripeti Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Ripeti la password" ng-model="vm.formData.passwordRepeated">
+                              </div>
+                              <label>Nota:</label><br>
+                              <p>Le tue informazioni vengono trattate secondo la Legge n. 675 del 31 dicembre 1996 - Tutela delle persone e di altri soggetti rispetto al trattamento dei dati personali.</p>
+                              <p>Leggi l'<a href="/informativa">informativa</a> di sottountetto.org</p>
+                              <br>
+                              <button type="submit" class="btn btn-default">Iscriviti</button>
+                              <br>
+                              <br>
+                              <div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+                              <div class="success alert-success alert" ng-show="vm.formSuccess">{{ vm.formSuccess }}</div>
+                            </form>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+          <!-- /Main Section -->

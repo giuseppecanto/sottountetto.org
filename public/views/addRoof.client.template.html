@@ -1,0 +1,61 @@
+<navigation></navigation>
+        <!-- Main Section -->
+            <section id="main">
+                <div class="breadcrumb-wrapper">
+                    <div class="pattern-overlay">
+                        <section id="page-tree">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-5 col-sm-5">
+                                        <h1>Proponi un tetto</h1>
+                                    </div>
+                                    <div class="col-md-7 col-sm-7">
+                                        <ol class="breadcrumb pull-right hidden-xs">
+                                            <li><a href="/home"><i class="ion-home"></i> Home</a></li>
+                                            <li><a>Profilo</a></li>
+                                            <li class="active"><a>Proponi un tetto</a></li>
+                                        </ol>
+                                    </div>
+                                </div><!--row-->
+                            </div><!--container-->
+                        </section><!--page-tree-->
+                    </div>
+                </div>
+                <!-- Main Content -->
+                <div class="content" ng-show="vm.checkValidity()">
+                    <div class="container">
+                      <div class="row">
+                          <div class="col-md-6 col-sm-12"><br>
+                            <form ng-submit="vm.onSubmit()">                              
+                              <!-- Map -->
+                              <div class="form-group">
+                                <label for="address">Indirizzo</label>
+                                <input type="text" class="form-control" places-auto-complete ng-model="vm.data.user.home.address" component-restrictions="{country:'it'}" types="{{types}}" on-place-changed="vm.placeChanged()" /> <br/>
+                              </div>
+                              <div ng-show="vm.place">
+                              </div>                             
+                               <ng-map center="{{ vm.data.user.home.address}}" zoom="10">
+                                   <marker position="{{ vm.data.user.home.address }}" title="Home" icon="http://maps.google.com/mapfiles/ms/icons/green-dot.png"></marker>
+                               </ng-map>
+                               <br>
+                              <!-- /Map -->
+                              <div class="form-group">
+                                <label for="address">Numero posti letto</label>
+                                <input type="text" class="form-control" ng-model="vm.data.user.home.numBed" placeholder="Inserisci il numero di posti letto che rendi disponbili"><br>
+                              </div>
+                              <label>Nota:</label><br>
+                              <p>Ricordati che puoi sempre modificare questo annuncio tornando in questa pagina. Se vorrai cancellarlo ti basterà azzerare i campi e premere invia.</p>
+                              <br>
+                              <button type="submit" class="btn btn-default">Invia</button>
+                              <br>
+                              <br>
+                              <div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+                              <div class="success alert-success alert" ng-show="vm.formSuccess">{{ vm.formSuccess }}</div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+          <!-- /Main Section -->
